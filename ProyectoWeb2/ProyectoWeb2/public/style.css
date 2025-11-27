@@ -1,0 +1,322 @@
+/* =========================================
+   ESTILOS GENERALES Y RESET - GIRLY GLOW-UP
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* Fondo: de negro (#050505) a un morado muy oscuro o berenjena */
+    background-color: #1A0A26; 
+    color: #F8F8FF; /* Blanco suave/Lila claro */
+    min-height: 100vh;
+    /* Fondo sutil general con brillo rosado y morado */
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 77, 182, 0.15) 0%, transparent 20%),
+                      radial-gradient(circle at 90% 80%, rgba(175, 70, 255, 0.15) 0%, transparent 20%);
+}
+
+/* Clases específicas para el cuerpo de la página */
+body.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.dashboard-page {
+    padding: 20px;
+}
+
+/* =========================================
+   COMPONENTES UI (Tarjetas, Inputs, Botones) - Brillo y Suavidad
+   ========================================= */
+
+/* Tarjeta Glassmorphism */
+.glass-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* Fondo más claro con un toque rosa/morado */
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    /* Borde más suave */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Radio más curvo */
+    border-radius: 40px; 
+    padding: 40px;
+    /* Sombra más ligera y suave */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); 
+}
+
+/* Ajustes específicos de tarjeta para Auth vs Panel */
+.auth-card {
+    max-width: 400px;
+    text-align: center;
+}
+
+.panel-card {
+    padding: 30px;
+    margin-bottom: 30px;
+    /* Radio más suave */
+    border-radius: 25px; 
+    backdrop-filter: blur(10px);
+}
+
+/* Tipografía */
+h1 {
+    font-size: 2.2rem; /* Un poco más grande */
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.auth-card h1 {
+    /* Gradiente: de rosa pastel a morado brillante */
+    background: linear-gradient(to right, #FFC0CB, #DA70D6); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 5px rgba(255, 192, 203, 0.5); /* Sombra sutil */
+}
+
+h3 {
+    margin-bottom: 25px;
+    color: #E0B0FF; /* Lila */
+    font-weight: 500;
+    /* Borde inferior con un color más "girly" */
+    border-bottom: 1px solid rgba(255, 192, 203, 0.2); 
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+p.subtitle {
+    color: #DDA0DD; /* Ciruela clara */
+    font-size: 1rem;
+    /* Reducimos el margen inferior porque eliminamos el divisor */
+    margin-bottom: 30px; 
+}
+
+/* Inputs */
+.input-group, .input-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #FFB6C1; /* Rosa claro */
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    /* Fondo más brillante */
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px 25px;
+    border-radius: 30px; /* Menos redondo que píldora, más un óvalo */
+    color: #F8F8FF;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.panel-card input {
+    border-radius: 15px; /* Inputs del panel más suaves */
+    padding: 12px 18px;
+}
+
+input:focus {
+    /* Color de foco: Rosa brillante */
+    border-color: #FF69B4; 
+    background: rgba(255, 255, 255, 0.15);
+    /* Sombra más rosa */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4); 
+}
+
+/* Botones Principales (Submit / Add) */
+.btn-submit, .btn-add {
+    width: 100%;
+    padding: 18px;
+    border-radius: 30px;
+    border: none;
+    /* Gradiente: Rosa a Morado brillante */
+    background: linear-gradient(90deg, #FF69B4 0%, #BA55D3 100%); 
+    color: white; /* Texto blanco para contraste */
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
+
+.btn-add {
+    border-radius: 15px; /* Botón del panel más suave */
+    padding: 14px 25px;
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.btn-submit:hover, .btn-add:hover {
+    transform: scale(1.05);
+    /* Sombra más marcada y brillante */
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.6); 
+}
+
+/* Alertas */
+.alert-error {
+    /* Fondo: Rosa pálido con borde rosa fuerte */
+    background: rgba(255, 105, 180, 0.15); 
+    border: 1px solid rgba(255, 105, 180, 0.6);
+    color: #FF69B4;
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* =========================================
+   ELEMENTOS ESPECÍFICOS DE LOGIN/REGISTER - Brillos
+   ========================================= */
+.background-glow {
+    position: absolute;
+    width: 400px; /* Más grande */
+    height: 400px;
+    /* Gradiente: Rosado a Morado suave */
+    background: linear-gradient(180deg, #FFC0CB 0%, #E0B0FF 100%); 
+    filter: blur(200px); /* Más borroso */
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.6; /* Más visible */
+    transform: translate(-50%, -50%);
+}
+
+.glow-login { top: 15%; left: 55%; }
+.glow-register { bottom: 5%; right: 15%; }
+
+/* --- SE ELIMINÓ .divider --- */
+/* --- SE ELIMINÓ .social-btn y .social-icon --- */
+
+.auth-link {
+    /* Mantenemos el margen superior para separar del botón de submit */
+    margin-top: 35px;
+    font-size: 0.95rem;
+    color: #A9A9A9;
+    text-align: center;
+}
+.auth-link a { 
+    color: #FF69B4; /* Enlace rosa */
+    text-decoration: none; 
+    font-weight: 700; 
+    transition: color 0.2s;
+}
+.auth-link a:hover { color: #BA55D3; }
+
+/* =========================================
+   ELEMENTOS ESPECÍFICOS DEL PANEL (DASHBOARD) - Header y Botones
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 35px;
+}
+
+.user-info h1 { 
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    color: #F8F8FF; 
+    background: none; 
+    -webkit-text-fill-color: #F8F8FF;
+}
+.user-info span { color: #FF69B4; } /* Nombre de usuario en rosa */
+
+.btn-logout {
+    text-decoration: none;
+    color: #FFC0CB; /* Color de texto rosa pálido */
+    border: 1px solid rgba(255, 192, 203, 0.5);
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    background: rgba(255, 192, 203, 0.05);
+}
+.btn-logout:hover { 
+    background: rgba(255, 105, 180, 0.1); 
+    border-color: #FF69B4; 
+    color: #FF69B4;
+}
+
+.add-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    align-items: end;
+}
+
+/* Tabla */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
+th { 
+    text-align: left; 
+    padding: 18px; 
+    color: #FFB6C1; 
+    font-weight: 600; 
+    border-bottom: 2px solid rgba(255, 192, 203, 0.3); /* Borde más grueso y rosa */
+    font-size: 1rem;
+}
+td { 
+    padding: 18px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+    vertical-align: middle; 
+}
+tbody tr:hover { background: rgba(255, 192, 203, 0.05); } /* Hover suave rosa */
+
+/* Acciones de tabla */
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem; /* Más grande */
+    padding: 8px;
+    margin-right: 8px;
+    transition: 0.3s;
+}
+.action-btn:hover { transform: scale(1.3); }
+.btn-edit-icon { color: #FFD700; } /* Dorado */
+.btn-delete-icon { color: #FF69B4; } /* Rosa fuerte */
+.btn-save-icon { color: #BA55D3; } /* Morado */
+.btn-cancel-icon { color: #DAA520; } /* Dorado oscuro */
+
+.edit-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 192, 203, 0.4);
+    color: #F8F8FF;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+.editing-row { background: rgba(255, 105, 180, 0.1) !important; } /* Fila editando más rosa */
+.empty-msg { text-align: center; color: #FFC0CB; padding: 25px; font-size: 1.1rem; }
